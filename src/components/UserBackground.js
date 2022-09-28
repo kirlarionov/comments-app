@@ -19,7 +19,6 @@ import settingImg from "../assets/settings.png";
 const UserBackground = () => {
    const { background, setBackground } = useAppContext();
    const [inputBg, setInputBg] = useState("");
-   // https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000
 
    const onClearButton = () => {
       setBackground("")

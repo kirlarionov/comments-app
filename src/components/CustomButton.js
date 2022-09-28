@@ -10,6 +10,7 @@ const CustomButton = ({ children, ...props }) => {
          borderRadius="10px"
          color="white"
          fontSize="22px"
+         pb="2px"
          {...props}
       >
          {children}

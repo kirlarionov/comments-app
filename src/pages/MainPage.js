@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Text, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text, Flex, useColorModeValue, Tooltip } from '@chakra-ui/react';
 import { useAppContext } from "../app-context";
 import UsersComments from '../components/UsersComments';
 import MainWrapper from '../components/MainWrapper';
 import MyComments from '../components/MyComments';
 import CustomButton from '../components/CustomButton';
+import StartModal from '../components/StartModal';
+import WelcomeText from '../components/WelcomeText';
 
 const MainPage = () => {
-   const { openCommentsList, setOpenCommentsList, title, setTitle } = useAppContext();
+   const { openCommentsList, setOpenCommentsList, title, setTitle, startWelcomeText } = useAppContext();
    const [titleCommentHeader, setTitleCommentHeader] = useState("");
    const pageBackground = useColorModeValue("gray.200", "gray.500");
    const textColor = useColorModeValue("gray.500", "gray.700");
@@ -34,6 +36,7 @@ const MainPage = () => {
 
    return (
       <MainWrapper backgroundColor={pageBackground} position="relative" minH="87vh">
+         <StartModal />
          <Box >
             <Text
                fontSize="30px"
@@ -55,17 +58,24 @@ const MainPage = () => {
             >
                {openCommentsList ? "CLOSE ↑" : "OPEN ↓"}
             </CustomButton>
-            <Link to="create-new-comment">
-               <CustomButton
-                  fontSize="26px"
-                  p="10px 10px 14px"
-                  position={{ md: "static", lg: "fixed" }}
-                  top="75px"
-                  right="250px"
-               >
-                  +
-               </CustomButton>
-            </Link>
+            <Tooltip
+               label="Click to create a new comment"
+               borderRadius="7px"
+               top="-50px"
+               backgroundColor="gray.500"
+            >
+               <Link to="create-new-comment">
+                  <CustomButton
+                     fontSize="26px"
+                     p="10px 10px 14px"
+                     position={{ md: "static", lg: "fixed" }}
+                     top="75px"
+                     right="250px"
+                  >
+                     +
+                  </CustomButton>
+               </Link>
+            </Tooltip>
             {
                !!openCommentsList && title && (
                   <Flex
@@ -79,6 +89,9 @@ const MainPage = () => {
                )
             }
          </Flex>
+         {
+            startWelcomeText && !openCommentsList && <WelcomeText />
+         }
          {
             !!openCommentsList && (
                <>

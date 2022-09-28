@@ -12,7 +12,7 @@ const NotFound = () => (
       <Text
          textAlign="center"
          fontSize={{ lg: "32px", base: "40px" }}
-         mb={{ lg: "40px", base: "70px" }}
+         mb={{ lg: "80px", base: "70px" }}
          mt={{ lg: 0, base: "100px" }}
          color="white"
       >
@@ -24,7 +24,7 @@ const NotFound = () => (
                w={{ base: "95%", lg: "auto" }}
                m={{ base: "0 auto", lg: 0 }}
                h={{ base: "55px", lg: "auto" }}
-               fontSize={{ lg: "auto", base: "35px" }}
+               fontSize={{ lg: "30px", base: "35px" }}
             >
                ← Back to Main
             </CustomButton>

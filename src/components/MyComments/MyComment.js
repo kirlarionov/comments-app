@@ -54,7 +54,7 @@ const MyComment = ({ comment, removeMyComment, setSortDisabled }) => {
       >
          <Flex justifyContent="space-between" mt="5px">
             <Text>TITLE:</Text>
-            <Text w="75%">{capitalizedTitle(comment.title)}</Text>
+            <Text w={{ lg: "75%", base: "70%" }}>{capitalizedTitle(comment.title)}</Text>
             <IconButton
                mt="-5px"
                icon={<EditIcon color="gray.400" w="16px" h="16px" />}
@@ -63,11 +63,11 @@ const MyComment = ({ comment, removeMyComment, setSortDisabled }) => {
          </Flex>
          <Flex justifyContent="space-between">
             <Text>TEXT:</Text>
-            <Text w="87%">{comment.text}</Text>
+            <Text w={{ lg: "87%", base: "84%" }}>{comment.text}</Text>
          </Flex>
          <Flex justifyContent="space-between">
             <Text>EMAIL:</Text>
-            <Text w={{ lg: "87%", base: "84%" }}>{comment.email}</Text>
+            <Text w={{ lg: "87%", base: "81%" }}>{comment.email}</Text>
          </Flex>
          <Flex
             justifyContent="space-between"
