@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link } from 'react-router-dom';
 import { Box, Text, Flex } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
-import { useAppContext } from "../app-context";
 import { getCommentInfo } from "../services/usersComments";
 import Loader from '../components/Loader';
 import MainWrapper from '../components/MainWrapper';
 
 const CommentPage = () => {
-   const { postNum } = useAppContext();
-   const { commentTitle } = useParams();
    const [title, setTitle] = useState('');
    const [commentInfo, setCommentInfo] = useState({});
    const [loading, setLoading] = useState(true);
+
+   const { postNum } = useSelector(state => state.main);
+   const { commentTitle } = useParams();
 
    useEffect(() => {
       setTitle(

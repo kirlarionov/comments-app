@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Text, Flex, Input, Alert, AlertIcon, Textarea, useColorModeValue } from '@chakra-ui/react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import CustomButton from '../components/CustomButton';
 import { addMyComment } from '../services/myComments';
 import MainWrapper from '../components/MainWrapper';
@@ -10,6 +10,7 @@ const CreateNewComment = () => {
    const [inputTitle, setInputTitle] = useState("");
    const [inputText, setInputText] = useState("");
    const [inputEmail, setInputEmail] = useState("");
+
    const background = useColorModeValue("green.200", "green.500");
 
    const successfullyAddedComment = () => {

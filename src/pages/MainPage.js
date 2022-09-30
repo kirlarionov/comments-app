@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Text, Flex, useColorModeValue, Tooltip } from '@chakra-ui/react';
-import { useAppContext } from "../app-context";
+import { useSelector, useDispatch } from 'react-redux';
+import { setOpenCommentsList, setTitle } from "../redux/slices/mainSlice";
 import UsersComments from '../components/UsersComments';
 import MainWrapper from '../components/MainWrapper';
 import MyComments from '../components/MyComments';
@@ -10,17 +11,21 @@ import StartModal from '../components/StartModal';
 import WelcomeText from '../components/WelcomeText';
 
 const MainPage = () => {
-   const { openCommentsList, setOpenCommentsList, title, setTitle, startWelcomeText } = useAppContext();
    const [titleCommentHeader, setTitleCommentHeader] = useState("");
+
+   const { startWelcomeText, openCommentsList, title } = useSelector((state) => state.main);
+   const dispatch = useDispatch();
+
    const pageBackground = useColorModeValue("gray.200", "gray.500");
    const textColor = useColorModeValue("gray.500", "gray.700");
 
    useEffect(() => {
       if (!openCommentsList) {
-         setTitle("");
+         dispatch(setTitle(""));
          setTitleCommentHeader("");
       }
-   }, [openCommentsList, setTitle]);
+      return () => dispatch(setTitle(""))
+   }, [openCommentsList, dispatch]);
 
    useEffect(() => {
       if (title) {
@@ -31,11 +36,15 @@ const MainPage = () => {
    }, [title]);
 
    const toggleVisibleComments = () => {
-      setOpenCommentsList(!openCommentsList);
+      dispatch(setOpenCommentsList(!openCommentsList));
    }
 
    return (
-      <MainWrapper backgroundColor={pageBackground} position="relative" minH="87vh">
+      <MainWrapper
+         backgroundColor={pageBackground}
+         position="relative"
+         minH="87vh"
+      >
          <StartModal />
          <Box >
             <Text

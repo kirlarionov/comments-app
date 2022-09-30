@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Text, Flex, Image, Box, ScaleFade, useColorModeValue } from '@chakra-ui/react';
-import { useAppContext } from "../app-context";
+import { useSelector } from "react-redux";
 import HelloIcon from '../assets/hello.svg';
 import SmileIcon from '../assets/smile.png';
 
 const WelcomeText = () => {
-   const { userName } = useAppContext();
    const [welcomeText1, setWelcomeText1] = useState(false);
    const [welcomeText2, setWelcomeText2] = useState(false);
    const [welcomeText3, setWelcomeText3] = useState(false);
+   
+   const userName = useSelector((state) => state.main.userName);
+
    const textColor = useColorModeValue("gray.500", "gray.700");
 
    useEffect(() => {

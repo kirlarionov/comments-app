@@ -12,18 +12,25 @@ import {
    Input,
    Button
 } from '@chakra-ui/react';
-import { useAppContext } from "../app-context";
+import { useSelector, useDispatch } from "react-redux";
+import { setBackground } from "../redux/slices/mainSlice";
 import CustomButton from "./CustomButton";
 import settingImg from "../assets/settings.png";
 
 const UserBackground = () => {
-   const { background, setBackground } = useAppContext();
    const [inputBg, setInputBg] = useState("");
 
+   const { background } = useSelector(state => state.main);
+   const dispatch = useDispatch();
+
    const onClearButton = () => {
-      setBackground("")
-      setInputBg("")
+      dispatch(setBackground(""));
+      setInputBg("");
    }
+
+   const onChangeBackground = () => {
+      dispatch(setBackground(inputBg));
+   };
 
    return (
       <Box
@@ -54,7 +61,7 @@ const UserBackground = () => {
                   />
                   <CustomButton
                      ml="10px"
-                     onClick={() => setBackground(inputBg)}
+                     onClick={onChangeBackground}
                   >
                      Apply
                   </CustomButton>

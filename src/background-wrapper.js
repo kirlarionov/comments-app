@@ -1,11 +1,12 @@
 import React from "react";
-import { useAppContext } from "./app-context"
-import { Box, useColorMode, Button, useColorModeValue } from '@chakra-ui/react'
-import UserBackground from "./components/UserBackground"
+import { Box, useColorMode, Button, useColorModeValue } from '@chakra-ui/react';
+import UserBackground from "./components/UserBackground";
+import { useSelector } from "react-redux";
 
 const BackgroundWrapper = ({ children }) => {
-   const { background } = useAppContext();
+   const { background } = useSelector(state => state.main);
    const { toggleColorMode } = useColorMode();
+   
    const buttonBackground = useColorModeValue("gray.200", "gray.500");
    const colorText = useColorModeValue("gray.400", "white");
 

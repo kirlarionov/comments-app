@@ -11,27 +11,30 @@ import {
    Text,
    useDisclosure
 } from "@chakra-ui/react";
-import { useAppContext } from "../app-context";
+import { useSelector, useDispatch } from "react-redux";
+import { setUserName, setStartWelcomeText } from "../redux/slices/mainSlice";
 import CustomButton from "./CustomButton";
 import MainWrapper from "./MainWrapper";
 
 const StartModal = () => {
-   const { userName, setUserName, setStartWelcomeText } = useAppContext();
    const { isOpen, onOpen, onClose } = useDisclosure();
    const [inputIsEmpty, setInputIsEmpty] = useState(false);
 
-   const onChangeInputName = (e) => setUserName(e.target.value);
+   const userName = useSelector((state) => state.main.userName);
+   const dispatch = useDispatch();
+
+   const onChangeInputName = (e) => dispatch(setUserName(e.target.value));
 
    useEffect(() => {
       if (!userName) {
          onOpen();
       }
-   }, [onOpen, userName, setStartWelcomeText]);
+   }, [onOpen, userName]);
 
    const onContinue = () => {
       if (!!userName) {
          onClose();
-         setStartWelcomeText(true);
+         dispatch(setStartWelcomeText(true));
       } else {
          setInputIsEmpty(true);
          setInterval(() => setInputIsEmpty(false), 2000);

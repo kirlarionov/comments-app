@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, Flex, Button, useColorModeValue } from '@chakra-ui/react';
-import { useAppContext } from "../../app-context";
+import { Box, Text, Flex, Button, useColorModeValue } from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPostNum } from "../../redux/slices/mainSlice";
 import { getUsersComments } from "../../services/usersComments";
-import Loader from '../Loader';
+import Loader from "../Loader";
 import UserComment from "./UserComment";
 
 const UsersComments = () => {
-   const { postNum, setPostNum } = useAppContext();
    const [usersComments, setUsersComments] = useState([]);
+
+   const { postNum } = useSelector(state => state.main);
+   const dispatch = useDispatch();
+
    const colorText = useColorModeValue("gray.500", "gray.700");
 
    useEffect(() => {
       getUsersComments(postNum)
          .then(usersComments => setUsersComments(usersComments));
    }, [postNum]);
+
+   const onSelectPostNum = (item) => {
+      dispatch(setPostNum(item));
+   }
 
    return (
       !usersComments.length ? (
@@ -51,7 +59,7 @@ const UsersComments = () => {
                            border="1px solid white"
                            color={colorText}
                            fontSize={{ base: "18px", lg: "16px" }}
-                           onClick={() => setPostNum(item)}
+                           onClick={() => onSelectPostNum(item)}
                         >
                            {item}
                         </Button>

@@ -1,14 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Text, Flex, Button, Box, useColorModeValue } from '@chakra-ui/react';
-import { useAppContext } from "../../app-context";
+import { useSelector, useDispatch } from 'react-redux';
+import { setTitle } from "../../redux/slices/mainSlice";
 
 const UserComment = ({ item }) => {
-   const { title, setTitle } = useAppContext();
+   const { title } = useSelector((state) => state.main);
+   const dispatch = useDispatch();
+   
    const colorText = useColorModeValue("gray.500", "gray.700");
 
    const pathName = (name) => {
       return `/comments/${name.split(" ").join("-")}`;
+   }
+
+   const onChangeTitle = () => {
+      dispatch(setTitle(item.name));
    }
 
    return (
@@ -23,7 +30,7 @@ const UserComment = ({ item }) => {
          _hover={{ backgroundColor: "gray.300" }}
          transition="all .2s"
          cursor="pointer"
-         onClick={() => setTitle(item.name)}
+         onClick={onChangeTitle}
       >
          <Text color={colorText}>
             {item.id}. {item.name}
