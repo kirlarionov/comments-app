@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="Project Logo Url" width="726">
+      <img src="./src/assets/comments-app-screen.png" width="726">
 </p>
 
 <p align="center">
@@ -9,12 +9,7 @@
 </p>
 
 ## About
-
-About Text Here
-
-## Documentation
-
-Documentation Here
+comments-app-screen.png
 
 ## Distribute
 
