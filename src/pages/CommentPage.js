@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Box, Text, Flex } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import CustomButton from '../components/CustomButton';
-import { getCommentInfo } from "../services/usersComments";
+import { getCommentInfo } from "../services/userComments";
 import Loader from '../components/Loader';
 import MainWrapper from '../components/MainWrapper';
 

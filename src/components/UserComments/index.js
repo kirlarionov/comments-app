@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Box, Text, Flex, Button, useColorModeValue } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { setPostNum } from "../../redux/slices/mainSlice";
-import { getUsersComments } from "../../services/usersComments";
+import { getUserComments } from "../../services/userComments";
 import Loader from "../Loader";
 import UserComment from "./UserComment";
 
-const UsersComments = () => {
-   const [usersComments, setUsersComments] = useState([]);
+const UserComments = () => {
+   const [userComments, setUserComments] = useState([]);
 
    const { postNum } = useSelector(state => state.main);
    const dispatch = useDispatch();
@@ -15,8 +15,8 @@ const UsersComments = () => {
    const colorText = useColorModeValue("gray.500", "gray.700");
 
    useEffect(() => {
-      getUsersComments(postNum)
-         .then(usersComments => setUsersComments(usersComments));
+      getUserComments(postNum)
+         .then(userComments => setUserComments(userComments));
    }, [postNum]);
 
    const onSelectPostNum = (item) => {
@@ -24,7 +24,7 @@ const UsersComments = () => {
    }
 
    return (
-      !usersComments.length ? (
+      !userComments.length ? (
          <Flex justifyContent="center" padding="60px">
             <Loader />
          </Flex>
@@ -36,10 +36,10 @@ const UsersComments = () => {
                color={colorText}
                mb="20px"
             >
-               USERS COMMENTS
+               USER COMMENTS
             </Text>
             {
-               usersComments.map(item => (
+               userComments.map(item => (
                   <UserComment
                      key={item.id}
                      item={item}
@@ -72,4 +72,4 @@ const UsersComments = () => {
    );
 }
 
-export default UsersComments;
+export default UserComments;

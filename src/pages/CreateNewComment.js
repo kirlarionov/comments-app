@@ -15,7 +15,7 @@ const CreateNewComment = () => {
 
    const successfullyAddedComment = () => {
       setCommentAdded(true);
-      setTimeout(() => setCommentAdded(false), 1500);
+      setTimeout(() => setCommentAdded(false), 2000);
       setInputTitle("");
       setInputText("");
       setInputEmail("");

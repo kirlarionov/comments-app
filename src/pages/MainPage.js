@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Box, Text, Flex, useColorModeValue, Tooltip } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setOpenCommentsList, setTitle } from "../redux/slices/mainSlice";
-import UsersComments from '../components/UsersComments';
+import UserComments from '../components/UserComments';
 import MainWrapper from '../components/MainWrapper';
 import MyComments from '../components/MyComments';
 import CustomButton from '../components/CustomButton';
@@ -104,7 +104,7 @@ const MainPage = () => {
          {
             !!openCommentsList && (
                <>
-                  <UsersComments />
+                  <UserComments />
                   <MyComments />
                </>
             )
