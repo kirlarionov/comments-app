@@ -1,13 +1,15 @@
+<a id="anchor"></a>
 <p align="center">
       <img src="./src/assets/comments-app-screen.png" width="726">
 </p>
 
-<p align="center">
-COMMENTS APP
-</p>
+<h1 align="center">
+      COMMENTS APP 
+      <img src="./src/assets/messages.png">
+</h1>
 
 ## About
-In this app you can view user comments and add/edit/delete your comments
+ In this app you can view user comments and add / edit / delete your comments
 
 ## Functionality of the App
 - Personal greeting in the app
@@ -23,8 +25,21 @@ In this app you can view user comments and add/edit/delete your comments
 - Adaptive layout is implemented 
 - If url is not found, "Page not found" page will open
 
-## Developers
+## Technology stack
+<p>
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"/>
+<img src="https://img.shields.io/badge/React-gray?style=for-the-badge&logo=React&logoColor=ЦВЕТ ЛОГОТИПА"/>
+<img src="https://img.shields.io/badge/Redux toolkit-764ABC?style=for-the-badge&logo=Redux&logoColor=white"/>
+<img src="https://img.shields.io/badge/Chakra UI-319795?style=for-the-badge&logo=Chakra UI&logoColor=white"/>
+<img src="https://img.shields.io/badge/mockapi-black?style=for-the-badge&logo=&logoColor=white"/>
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+<img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"/>
+<img src="https://img.shields.io/badge/react router-black?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/>
+</p>
 
-- Kirill Larionov (https://github.com/kirlarionov)
 
-## License
+### Developers:
+[Kirill Larionov (GitHub)](https://github.com/kirlarionov)
+___
+[Back to top &#129145;](#anchor)
+
