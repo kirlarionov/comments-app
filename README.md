@@ -41,5 +41,6 @@
 ### Developers:
 [Kirill Larionov (GitHub)](https://github.com/kirlarionov)
 ___
-[Back to top &#129145;](#anchor)
+##### [<p align="center">Back to top &#129145;</p>](#anchor)
+
 
