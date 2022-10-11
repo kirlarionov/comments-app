@@ -9,10 +9,12 @@
 </h1>
 
 ## About
- In this app you can view user comments and add / edit / delete your comments
+ In this App you can view user comments and add / edit / delete your comments
+ 
+ Link to view this  App &#10143; https://kirlarionov.github.io/comments-app
 
 ## Functionality of the App
-- Personal greeting in the app
+- Personal greeting in the App
 - Getting user comments (from jsonplaceholder)
 - Click on "read more" in a comment and go to the comment page
 - Getting a page-by-page display of user comments
@@ -36,7 +38,6 @@
 <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"/>
 <img src="https://img.shields.io/badge/react router-black?style=for-the-badge&logo=reactrouter&logoColor=CA4245"/>
 </p>
-
 
 ### Developers:
 [Kirill Larionov (GitHub)](https://github.com/kirlarionov)
