@@ -69,6 +69,7 @@ const StartModal = () => {
                      </Text>
                   </Box>
                   <Input
+                     name="usernameInput"
                      placeholder="Your name"
                      backgroundColor="#ffffff"
                      size="lg"
