@@ -29,7 +29,11 @@ const CommentPage = () => {
    }, [postNum, title]);
 
    return (
-      <MainWrapper backgroundColor="blue.200" minHeight={{ base: "96vh", lg: "100%" }}>
+      <MainWrapper 
+         margin="0 auto"
+         backgroundColor="blue.200" 
+         minHeight={{ base: "96vh", lg: "100%" }}
+      >
          <Text
             fontSize="30px"
             textAlign="center"

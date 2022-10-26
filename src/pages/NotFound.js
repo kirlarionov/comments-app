@@ -6,6 +6,7 @@ import MainWrapper from '../components/MainWrapper';
 
 const NotFound = () => (
    <MainWrapper
+      margin="0 auto"
       backgroundColor="orange.200"
       minHeight={{ base: "96vh", lg: "100%" }}
    >

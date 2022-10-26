@@ -31,6 +31,7 @@ const CreateNewComment = () => {
 
    return (
       <MainWrapper
+         margin="0 auto"
          backgroundColor={background}
          fontSize={{ lg: "22px", base: "18px" }}
          minHeight={{ base: "96vh", lg: "100%" }}

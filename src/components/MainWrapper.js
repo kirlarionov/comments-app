@@ -1,10 +1,10 @@
-import React from 'react';
-import { Box } from '@chakra-ui/react';
+import React from "react"
+import { Box } from "@chakra-ui/react"
 
-const MainWrapper = ({ backgroundColor, children, ...props }) => (
+const MainWrapper = ({ backgroundColor, children, margin, ...props }) => (
    <Box
       maxW="900px"
-      margin="0 auto"
+      margin={margin}
       backgroundColor={backgroundColor}
       borderRadius="25px"
       padding="6px"
@@ -19,7 +19,7 @@ const MainWrapper = ({ backgroundColor, children, ...props }) => (
       >
          {children}
       </Box>
-   </Box >
+   </Box>
 );
 
 export default MainWrapper;

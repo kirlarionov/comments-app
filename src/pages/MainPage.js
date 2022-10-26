@@ -41,10 +41,11 @@ const MainPage = () => {
 
    return (
       <MainWrapper
+         margin="0 auto"
          backgroundColor={pageBackground}
          position="relative"
          minH="87vh"
-      >
+      > 
          <StartModal />
          <Box >
             <Text
