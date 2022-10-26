@@ -7,6 +7,7 @@ describe("StartModal e2e tests", () => {
          .should("have.value", "Kirill Larionov")
       cy.wait(1000)
       cy.get(".css-19ncj7m").click()
+      cy.get(".css-19ncj7m").should("not.exist")
       cy.get(".css-gmuwbf")
          .find("strong")
          .should("have.text", "Kirill Larionov")
