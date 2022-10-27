@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Flex, Input, Textarea, Box } from '@chakra-ui/react';
-import { useAppContext } from "../../app-context";
+import { useDispatch } from 'react-redux';
+import { setMyComments } from '../../redux/slices/myCommentsSlice';
 import CustomButton from '../CustomButton';
 import { editMyComment } from '../../services/myComments';
 
@@ -8,7 +9,8 @@ const EditCommentMode = ({
    setEditMode, editTitle, setEditTitle, editText, editEmail, setEditEmail,
    comment, setSortDisabled, setEditText, capitalizedTitle, setLoading
 }) => {
-   const { setMyComments } = useAppContext();
+
+   const dispatch = useDispatch();
 
    const applyEditComment = () => {
       setLoading(true);
@@ -20,14 +22,14 @@ const EditCommentMode = ({
       }
 
       editMyComment(comment.id, updatedCommentObj)
-         .then(data => setMyComments(prevState => {
+         .then(data => dispatch(setMyComments(prevState => {
             setLoading(false);
             return prevState.map(curComment => {
                if (curComment.id === comment.id) {
                   return { ...curComment, ...data }
                } else return curComment
             })
-         }));
+         })));
 
       setEditMode(false);
       setSortDisabled(false);

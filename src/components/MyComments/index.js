@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Text, Select, Flex, useColorModeValue } from '@chakra-ui/react';
-import { useAppContext } from "../../app-context";
+import { useSelector, useDispatch } from 'react-redux';
+import { setTitle } from '../../redux/slices/mainSlice';
+import { setMyComments } from '../../redux/slices/myCommentsSlice';
 import MyComment from './MyComment';
 import { deleteMyComment, getMyComments } from '../../services/myComments';
 import Loader from '../Loader';
 
 const MyComments = () => {
-   const { setTitle, myComments, setMyComments } = useAppContext();
    const [sort, setSort] = useState("");
    const [sortDisabled, setSortDisabled] = useState(false);
    const [loading, setLoading] = useState(false);
+
+   const { comments } = useSelector((state) => state.myComments);
+   const dispatch = useDispatch();
+
    const background = useColorModeValue("gray.100", "gray.300");
    const colorText = useColorModeValue("gray.500", "gray.700");
+
+   useEffect(() => {
+      setLoading(true);
+      getMyComments()
+         .then(data => {
+            setLoading(false);
+            return dispatch(
+               setMyComments(data.sort((a, b) => new Date(b.createdAt) > new Date(a.createdAt) ? 1 : -1))
+               );
+         });
+      return () => dispatch(setTitle(""));
+   }, [dispatch]);
 
    const isSorted = () => {
       switch (sort) {
          case "date-desc":
-            setMyComments(prevState => [...prevState].sort((a, b) => new Date(b.createdAt) > new Date(a.createdAt) ? 1 : -1));
+            dispatch(setMyComments([...comments].sort((a, b) => new Date(b.createdAt) > new Date(a.createdAt) ? 1 : -1)));
             break;
          case "date-asc":
-            setMyComments(prevState => [...prevState].sort((a, b) => new Date(a.createdAt) < new Date(b.createdAt) ? -1 : 1));
+            dispatch(setMyComments([...comments].sort((a, b) => new Date(a.createdAt) < new Date(b.createdAt) ? -1 : 1)));
             break;
          case "title-asc":
-            setMyComments(prevState => [...prevState].sort((a, b) => b.title < a.title ? 1 : -1));
+            dispatch(setMyComments([...comments].sort((a, b) => b.title < a.title ? 1 : -1)));
             break;
          case "title-desc":
-            setMyComments(prevState => [...prevState].sort((a, b) => b.title > a.title ? 1 : -1));
+            dispatch(setMyComments([...comments].sort((a, b) => b.title > a.title ? 1 : -1)));
             break;
          default:
             break;
@@ -33,20 +50,10 @@ const MyComments = () => {
    }
 
    const removeMyComment = (id) => {
-      const updatedCommentList = myComments.filter(comment => comment.id !== id);
+      const updatedCommentList = comments.filter(comment => comment.id !== id);
       deleteMyComment(id)
-         .then(setMyComments(updatedCommentList));
+         .then(dispatch(setMyComments(updatedCommentList)));
    }
-
-   useEffect(() => {
-      setLoading(true);
-      getMyComments()
-         .then(data => {
-            setLoading(false);
-            return setMyComments(data);
-         });
-      return () => setTitle("");
-   }, [setTitle, setMyComments]);
 
    return (
       loading ? (
@@ -54,7 +61,7 @@ const MyComments = () => {
             <Loader />
          </Flex>
       ) : (
-         !!myComments.length
+         !!comments.length
             ? <>
                <Text
                   textAlign="center"
@@ -66,7 +73,6 @@ const MyComments = () => {
                   MY COMMENTS
                </Text>
                <Select
-                  placeholder={sort ? "" : "Sort by..."}
                   w="150px"
                   pb="5px"
                   fontSize={{ lg: "16px", base: "18px" }}
@@ -77,10 +83,10 @@ const MyComments = () => {
                   onClick={isSorted}
                   disabled={sortDisabled}
                >
-                  <option value='date-asc'>date (ASC)</option>
                   <option value='date-desc'>date (DESC)</option>
-                  <option value='title-asc'>title (ASC)</option>
+                  <option value='date-asc'>date (ASC)</option>
                   <option value='title-desc'>title (DESC)</option>
+                  <option value='title-asc'>title (ASC)</option>
                </Select>
                <Box
                   p="10px"
@@ -92,7 +98,7 @@ const MyComments = () => {
                   gap="10px"
                >
                   {
-                     myComments.map((comment, index) => {
+                     comments.map((comment, index) => {
                         return (
                            <MyComment
                               key={index + "-my-comment"}
