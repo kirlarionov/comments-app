@@ -16,7 +16,8 @@ const MyComments = () => {
    const dispatch = useDispatch();
 
    const background = useColorModeValue("gray.100", "gray.300");
-   const colorText = useColorModeValue("gray.500", "gray.700");
+   const textColor = useColorModeValue("gray.500", "gray.700");
+   const selectTextColor = useColorModeValue("gray.500", "gray.300");
 
    useEffect(() => {
       setLoading(true);
@@ -67,7 +68,7 @@ const MyComments = () => {
                   textAlign="center"
                   fontSize="20px"
                   mt="32px"
-                  color={colorText}
+                  color={textColor}
                   mb="20px"
                >
                   MY COMMENTS
@@ -76,7 +77,7 @@ const MyComments = () => {
                   w="150px"
                   pb="5px"
                   fontSize={{ lg: "16px", base: "18px" }}
-                  color={colorText}
+                  color={selectTextColor}
                   cursor="pointer"
                   value={sort}
                   onChange={e => setSort(e.target.value)}
