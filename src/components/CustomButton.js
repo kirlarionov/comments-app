@@ -11,6 +11,7 @@ const CustomButton = ({ children, ...props }) => {
          color="white"
          fontSize="22px"
          pb="2px"
+         zIndex={999}
          {...props}
       >
          {children}
