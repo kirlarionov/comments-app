@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { ChakraProvider } from '@chakra-ui/react'
-import { AppProvider } from "./app-context_NOT_USED_NOW"
-import BackgroundWrapper from "./background-wrapper"
-import MainPage from "./pages/MainPage"
-import CommentPage from "./pages/CommentPage"
-import NotFound from "./pages/NotFound"
-import CreateNewComment from "./pages/CreateNewComment"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+import { AppProvider } from "./app-context_NOT_USED_NOW";
+import BackgroundWrapper from "./background-wrapper";
+import MainPage from "./pages/MainPage";
+import CommentPage from "./pages/CommentPage";
+import NotFound from "./pages/NotFound";
+import CreateNewComment from "./pages/CreateNewComment";
 
 const App = () => (
    <BrowserRouter>
@@ -23,6 +23,6 @@ const App = () => (
          </ ChakraProvider>
       </AppProvider>
    </BrowserRouter >
-)
+);
 
 export default App;
