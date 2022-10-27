@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/comments-app/static/css/main.fda43e90.css",
+    "main.js": "/comments-app/static/js/main.9006298a.js",
+    "static/media/hello.svg": "/comments-app/static/media/hello.5a6f00ccb56b450734600d2e0444fb6b.svg",
+    "index.html": "/comments-app/index.html",
+    "main.fda43e90.css.map": "/comments-app/static/css/main.fda43e90.css.map",
+    "main.9006298a.js.map": "/comments-app/static/js/main.9006298a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fda43e90.css",
+    "static/js/main.9006298a.js"
+  ]
+}
