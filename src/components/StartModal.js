@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
    Box,
    Modal,
@@ -31,7 +31,9 @@ const StartModal = () => {
       }
    }, [onOpen, userName]);
 
-   const onContinue = () => {
+   const onContinue = useCallback((event) => {
+      event.stopPropagation();
+
       if (!!userName) {
          onClose();
          dispatch(setStartWelcomeText(true));
@@ -39,7 +41,18 @@ const StartModal = () => {
          setInputIsEmpty(true);
          setInterval(() => setInputIsEmpty(false), 2000);
       }
-   }
+   }, [dispatch, onClose, userName])
+
+   useEffect(() => {
+      const onPressEnter = (event) => {
+         if (event.key === "Enter") {
+             onContinue(event);
+         }
+      }
+
+      document.addEventListener("keypress", onPressEnter);
+      return () => document.removeEventListener("keypress", onPressEnter);
+   }, [onContinue]);
 
    return (
       <Modal
