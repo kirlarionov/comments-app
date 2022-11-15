@@ -11,7 +11,7 @@ const UserComment = ({ item }) => {
    const colorText = useColorModeValue("gray.500", "gray.700");
 
    const pathName = (name) => {
-      return `/comments/${name.split(" ").join("-")}`;
+      return `/comments-app/${name.split(" ").join("-")}`;
    }
 
    const onChangeTitle = () => {

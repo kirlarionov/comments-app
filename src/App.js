@@ -14,15 +14,21 @@ const App = () => (
          <ChakraProvider>
             <BackgroundWrapper>
                <Routes>
-                  <Route path="/" element={<MainPage />} />
-                  <Route path="/create-new-comment" element={<CreateNewComment />} />
-                  <Route path="/comments/:commentTitle" element={<CommentPage />} />
+                  <Route path="/comments-app/" element={<MainPage />} />
+                  <Route
+                     path="/comments-app/create-new-comment"
+                     element={<CreateNewComment />}
+                  />
+                  <Route
+                     path="/comments-app/:commentTitle"
+                     element={<CommentPage />}
+                  />
                   <Route path="*" element={<NotFound />} />
                </Routes>
             </BackgroundWrapper>
-         </ ChakraProvider>
+         </ChakraProvider>
       </AppProvider>
-   </BrowserRouter >
+   </BrowserRouter>
 );
 
 export default App;

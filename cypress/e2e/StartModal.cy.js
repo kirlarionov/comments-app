@@ -1,6 +1,6 @@
 describe("StartModal e2e tests", () => {
    it("should have a name added to the welcome text", () => {
-      cy.visit("/")
+      cy.visit("/comments-app")
       cy.get('input[name="usernameInput"]')
          .should("have.value", "")
          .type("Kirill Larionov")
@@ -14,7 +14,7 @@ describe("StartModal e2e tests", () => {
 
       cy.wait(4000)
 
-      cy.visit("/")
+      cy.visit("/comments-app")
       cy.get('input[name="usernameInput"]').should("have.value", "")
       cy.get(".css-19ncj7m").click()
       cy.get('input[name="usernameInput"]')

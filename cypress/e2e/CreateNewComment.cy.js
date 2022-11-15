@@ -2,7 +2,7 @@ describe("Create New Comment e2e tests", () => {
    const dateNow = new Date().toLocaleString("ru-RU").slice(0, -3)
 
    it("should added comment in 'My Comments' list", () => {
-      cy.visit("/create-new-comment")
+      cy.visit("/comments-appcreate-new-comment")
 
       cy.get("input[name='title']").type(`Test TITLE - ${dateNow}`)
       cy.get("textarea[name='text']").type("Test TEXT")

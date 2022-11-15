@@ -81,13 +81,12 @@ const CommentPage = () => {
                      <Text fontWeight="bold">EMAIL:</Text>
                      <Text width="80%">{commentInfo.email}</Text>
                   </Flex>
-                  <Link to="/">
+                  <Link to="/comments-app">
                      <CustomButton _hover={{ backgroundColor: "blue.300" }}>← Back to Main</CustomButton>
                   </Link>
                </>
-            )
-         }
-      </MainWrapper >
+         )}
+      </MainWrapper>
    );
 }
 
