@@ -26,6 +26,7 @@
 - You can choose a dark or light theme for the site
 - Adaptive layout is implemented 
 - If url is not found, "Page not found" page will open
+- Cypress (e2e) tests added to the App
 
 ## Technology stack
 <p>
