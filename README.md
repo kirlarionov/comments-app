@@ -23,6 +23,7 @@
 - Clicking on "+" you will go to the page of adding a new comment (the comment will be added to My Comments)
 - You can sort your comment list by date and alphabetically (by comment name)
 - You can set your own background (gears in lower left corner)
+- Using the Chakra UI component library
 - You can choose a dark or light theme for the site
 - Adaptive layout is implemented 
 - If url is not found, "Page not found" page will open
