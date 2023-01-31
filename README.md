@@ -1,6 +1,6 @@
 <a id="anchor"></a>
 <p align="center">
-      <img src="./src/assets/news.jpg" width="600">
+      <img src="./src/assets/comments-app-screen.png" width="600">
 </p>
 
 <h1 align="center">
